@@ -75,7 +75,7 @@ resource "aws_elb" "example" {
         healthy_threshold = 2
         unhealthy_threshold = 2
         timeout = 3
-        interval = 30
+        interval = 60
         target = "HTTP:8080/"
     }
 }
