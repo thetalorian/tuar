@@ -73,7 +73,7 @@ try {
     }
     currentBuild.result = 'SUCCESS'
 }
-catch (org.jenkins.plugins.workflow.steps.FlowInteruptedException flowError) {
+catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
     currentBuild.result = 'ABORTED'
 }
 catch (err) {
