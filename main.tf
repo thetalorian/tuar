@@ -19,7 +19,7 @@ provider "aws" {
 
 resource "aws_launch_configuration" "example" {
     image_id = "ami-40d28157"
-    instance_type = "t2.small"
+    instance_type = "t2.micro"
     security_groups = ["${aws_security_group.instance.id}"]
 
     lifecycle {
