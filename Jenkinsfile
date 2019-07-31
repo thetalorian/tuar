@@ -8,6 +8,10 @@ try {
         }
     }
 
+    // Set up terraform from plugin
+    def tfHome = tool name: 'terraform'
+    env.PATH = "${tfHome}:${env.PATH}"
+
     // Run terraform init
     stage('init') {
         node {
