@@ -5,12 +5,11 @@ try {
         node {
             cleanWs()
             checkout scm
+            // Set up terraform from plugin
+            def tfHome = tool name: 'terraform'
+            env.PATH = "${tfHome}:${env.PATH}"
         }
     }
-
-    // Set up terraform from plugin
-    def tfHome = tool name: 'terraform'
-    env.PATH = "${tfHome}:${env.PATH}"
 
     // Run terraform init
     stage('init') {
