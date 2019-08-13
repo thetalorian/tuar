@@ -1,8 +1,16 @@
 String credentialsId = 'AWSTerraformer'
 
-properties(
+def triggers = []
+
+if("env.BRANCH_NAME" == 'master') {
+    triggers << cron('H/2 * * * *') // every 2 minutes
+} else {
+    // no scheduled build
+}
+
+properties (
     [
-        pipelineTriggers([cron('0/2 * * * *')]),
+        pipelineTriggers(triggers)
     ]
 )
 
