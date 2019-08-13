@@ -1,5 +1,5 @@
 String credentialsId = 'AWSTerraformer'
-triggers { cron('*/2 * * * *') }
+pipelineTriggers { cron('*/2 * * * *') }
 
 try {
     stage('checkout') {
