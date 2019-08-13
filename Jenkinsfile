@@ -1,5 +1,18 @@
 String credentialsId = 'AWSTerraformer'
-pipelineTriggers { cron('*/2 * * * *') }
+
+def triggers = []
+
+if("env.BRANCH_NAME" == 'master') {
+    triggers << cron('H/2 * * * *') // every 2 minutes
+} else {
+    // no scheduled build
+}
+
+properties (
+    [
+        pipelineTriggers(triggers)
+    ]
+)
 
 try {
     stage('checkout') {
